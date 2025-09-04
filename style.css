@@ -2,19 +2,27 @@
 .wrapper {
   /*background-image: url('https://i.postimg.cc/1z38cNWc/Architecture-brutaliste-Creteil-Grandval-photographe-Thierry-Allard.jpg');*/
   /*background-image: url('https://i.postimg.cc/Sxy7XdMg/1-Kamsyemq-Zgt-Lj-Gm-KVe3-TA.jpg');*/
-  background-image: url('https://i.postimg.cc/63RYV35c/Nationaly-Theatre.jpg');
+  /*background-image: url('https://i.postimg.cc/63RYV35c/Nationaly-Theatre.jpg');*/
   /*background-image: url('https://i.postimg.cc/MGZSrCj1/Brutalism-vs-Modernism-2.jpg');*/
-  background-size: 150%;
-  background-position: center;
-  background-repeat: no-repeat;
-
+  background-image: url('https://i.postimg.cc/Cx4rMp05/vrf-N8m2j-N9-Rak6-Vme-Q5-QQi.jpg');
+    background-size: cover;        /* l’image couvre toute la surface */
+  background-position: center;   /* centrée */
+  background-repeat: no-repeat;  /* pas de répétition */
+  
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px;
-  height: 100vh;
+  min-height: 100vh;             /* toujours pleine hauteur */
+  width: 100%;                   /* toujours pleine largeur */
   box-sizing: border-box;
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 
 /* Grille 2x2 */
 .grid {
@@ -87,30 +95,6 @@
   transition: opacity 0.4s;
 }
 
-/*.hover-card h1 {
-  position: absolute;
-  top: 30px;             
-  left: 45%;              
-  transform: translateX(-50%); 
-  width: auto;
-   margin: 0;    
-  padding: 0;
-  color: #f44336;
-  font-size: 2em;
-  font-family: Impact, fantasy;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  line-height: 1;
-    text-shadow:
-        0 0 5px rgba(244, 67, 54, 0.8),
-    0 0 10px rgba(244, 67, 54, 0.8),
-    0 0 15px rgba(244, 67, 54, 0.9),
-    2px 2px 3px rgba(0,0,0,0.7); 
-  text-align: center;
-  pointer-events: none;
-}
-
-
 .hover-card p {
   display: flex;
   justify-content: space-between; 
@@ -129,75 +113,121 @@
   text-align: right;
   margin-left: 10px;
 }
-*/
 
-/* Pour éviter les surprises de largeur */
 .grid-item, .hover-card, .hover-card * { box-sizing: border-box; }
 
-/* Hover-card : inchangé sauf ce bloc liste */
 .hover-card {
-  position: absolute;
-  inset: 0;                    /* top:0; right:0; bottom:0; left:0 */
+  display: flex;
+  flex-direction: column; 
+  justify-content: flex-start;
+  align-items: center;
   padding: 20px;
-  background-color: rgba(30,30,30,0.95);
-  border-radius: 15px;
-  z-index: 3;
-  opacity: 0;
-  transition: opacity .4s;
 }
 
-/* Titre centré en haut */
 .hover-card h1 {
-  position: absolute;
-  top: 20px; left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  color: #f44336;
-  font: 900 2em Impact, fantasy;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  text-align: center;
-  text-shadow:
-    0 0 5px rgba(244,67,54,.8),
-    0 0 10px rgba(244,67,54,.6),
-    0 0 15px rgba(244,67,54,.4),
-    2px 2px 3px rgba(0,0,0,.7);
-  pointer-events: none;
+	position: absolute;
+	top: 20px; left: 50%;
+	transform: translateX(-50%);
+	margin: 0;
+	color: #f44336;
+	font: 900 2em Impact, fantasy;
+	letter-spacing: -0.02em;
+	line-height: 1;
+	text-align: center;
+	text-shadow:
+	0 0 5px rgba(244,67,54,.8),
+	0 0 10px rgba(244,67,54,.6),
+	0 0 15px rgba(244,67,54,.4),
+	2px 2px 3px rgba(0,0,0,.7);
+	pointer-events: none;
 }
 
-/* Zone liste qui respecte la largeur interne */
+.hover-card .residentadvisor {
+	width: 30px; 
+	position: center;
+	height: auto;
+	bottom: 50px;
+}
+
+.hover-card .residentadvisor:hover {
+	transform: scale(1.7); 
+}
+
+
 .hover-card .list {
-  position: absolute;
-  left: 20px; right: 20px;     /* empêche le texte de “sortir” */
-  bottom: 20px;                /* tu peux changer pour la placer ailleurs */
-  display: grid;
-  row-gap: 6px;
+	position: absolute;
+	left: 20px; right: 20px;
+	bottom: 20px;          
+	display: grid;
+	row-gap: 6px;
 }
 
-/* Chaque ligne = 2 colonnes : gauche flexible, droite à largeur auto */
 .hover-card .list p {
-  margin: 0;
-  display: grid;
-  grid-template-columns: 1fr max-content; /* ville s’ajuste, ne déborde pas */
-  column-gap: 12px;
-  color: #fff;
-  font: 400 1em/1.2 sans-serif;
-  white-space: normal;          /* IMPORTANT: pas de préservation d’espaces */
-  overflow-wrap: anywhere;      /* coupe proprement si trop long */
-  font-variant-numeric: tabular-nums; /* chiffres alignés */
+margin: 0;
+display: grid;
+grid-template-columns: 1fr max-content; /* ville s’ajuste, ne déborde pas */
+column-gap: 12px;
+color: #fff;
+font: 400 1em/1.2 sans-serif;
+white-space: normal;          /* IMPORTANT: pas de préservation d’espaces */
+overflow-wrap: anywhere;      /* coupe proprement si trop long */
+font-variant-numeric: tabular-nums; /* chiffres alignés */
 }
 
-/* Colonne gauche (date + événement + tiret) */
+.hover-card .player {
+margin-top: 100px; /* pousse le lecteur en bas */
+width: 100%;
+}
+
+.centered-text {
+margin: 0;
+display: grid;
+
+width: 100%;           /* occupe toute la largeur disponible */
+table-layout: fixed;
+column-gap: 12px;
+color: #fff;
+font: 400 1em/1.2 sans-serif;
+white-space: normal;  /* empêche le texte de déborder */
+text-align: justify;       /* justifie le texte */
+}
+
+.hover-card .selmz {
+width: auto;
+height: 200px;
+border-radius: 12px;  /* coins arrondis */
+}
+
 .hover-card .list .left { min-width: 0; }
 
-/* Colonne droite (ville), alignée à droite SANS déborder */
 .hover-card .list .city { justify-self: end; }
 
 .grid-item:hover img {
-  transform: scale(1.05);
+transform: scale(1.05);
 }
 
 .grid-item:hover .hover-card {
-  opacity: 1;
+opacity: 1;
 }
 
+.hover-card .icons {
+position: absolute;
+bottom: 45px;     /* collé en bas */
+left: 0;
+width: 100%;
+display: flex;
+justify-content: center;   /* tout centré */
+gap: 20px;
+}
+
+.hover-card .icons i {
+	font-size: 30px; 
+	color: #f44336; 
+	cursor: pointer;
+	transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hover-card .icons i:hover {
+	transform: scale(1.2);
+	color: #ff6b6b;
+}
